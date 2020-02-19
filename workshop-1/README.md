@@ -95,7 +95,7 @@ You will be deploying infrastructure on AWS which will have an associated cost. 
     In the terminal, change directory to the subdirectory for this workshop in the repo:
 
     ```
-    $ cd amazon-ecs-mythicalmysfits-workshop/workshop-1
+    $ cd ecs-fargate-workshop/workshop-1
     ```
 
 5. Run some additional automated setup steps with the `setup` script:
