@@ -122,7 +122,7 @@ $ git config --global credential.UseHttpPath true
 There are a number of files and startup scripts we have pre-created for you. They're all in the main repo that you're using, so we'll clone that locally. Run this:
 
 <pre>
-$ git clone https://github.com/aws-samples/amazon-ecs-mythicalmysfits-workshop.git
+$ git clone https://github.com/ahmedbham/ecs-fargate-workshop.git
 </pre>
 
 3\. Bootstrap
@@ -130,7 +130,7 @@ $ git clone https://github.com/aws-samples/amazon-ecs-mythicalmysfits-workshop.g
 There are a number of files that need to be created in order for your services to run later, so let's create them now.
 
 <pre>
-$ cd ~/environment/amazon-ecs-mythicalmysfits-workshop/workshop-2/
+$ cd ~/environment/ecs-fargate-workshop/workshop-2/
 $ script/setup
 </pre>
 
@@ -141,7 +141,7 @@ $ script/setup
 <b>Click here</b> if you are already attended CON214 or are familiar with Docker, Fargate, and AWS in general, we'll give you instructions on how to run the bootstrap script that will get you to the start of Lab 1.
 </summary>
 <pre>
-$ cd ~/environment/amazon-ecs-mythicalmysfits-workshop/workshop-2/
+$ cd ~/environment/ecs-fargate-workshop/workshop-2/
 $ script/setup_ws1_end
 </pre>
 
@@ -169,7 +169,7 @@ You made it to the end of Lab 0. You should now have two running services hooked
 In order for us to use a Docker image, we have to create it first. We'll do it manually here but don't worry, the whole point is to automate all this away. 
 
 <pre>
-$ cd ~/environment/amazon-ecs-mythicalmysfits-workshop/workshop-2/app/monolith-service
+$ cd ~/environment/ecs-fargate-workshop/workshop-2/app/monolith-service
 $ docker build -t monolith-service .
 </pre>
 
@@ -242,7 +242,7 @@ When you issue the push command, Docker pushes the layers up to ECR, and if you 
 We already have the repository URIs so let's build the like-service:
 
 <pre>
-$ cd ~/environment/amazon-ecs-mythicalmysfits-workshop/workshop-2/app/like-service
+$ cd ~/environment/ecs-fargate-workshop/workshop-2/app/like-service
 $ docker build -t like-service .
 </pre>
 
@@ -284,7 +284,7 @@ $ aws ecs list-task-definitions
 Next up we need to create the Fargate services for the monolith service and the like service. We're using AWS CLI skeletons that we've updated to include the output values from the CloudFormation stack. The only thing you have to do is pass in the task definitions you noted down earlier. Run the following commands from your Cloud9 IDE, substituting in the task definitions for the ones you just listed. Make sure to include the number at the very end.
 
 <pre>
-$ cd ~/environment/amazon-ecs-mythicalmysfits-workshop/workshop-2/Lab-0
+$ cd ~/environment/ecs-fargate-workshop/workshop-2/Lab-0
 $ aws ecs create-service --cli-input-json file://monolith-service.json --task-definition REPLACE_ME_MONOLITH_TASK_DEFINITION
 $ aws ecs create-service --cli-input-json file://like-service.json --task-definition REPLACE_ME_LIKE_TASK_DEFINITION
 </pre>
